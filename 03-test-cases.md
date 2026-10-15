@@ -49,7 +49,7 @@ Eight test cases: five positive or validation checks that pass, and three edge c
 | Test Data | DOB 01/01/2030 (future); DOB 13/45/2016 (impossible date) |
 | Steps | 1. Type 01/01/2030 in DOB. <br>2. Move focus out of the field. <br>3. Repeat with 13/45/2016. |
 | Expected Result | The date is not accepted and a message explains why (for example, "Date of birth cannot be in the future") |
-| Actual Result | The date picker greys out future dates, but a typed date is cleared silently when the field loses focus. No message is shown in either case |
+| Actual Result | The date picker grays out future dates, but a typed date is cleared silently when the field loses focus. No message is shown in either case (MINOR-09) |
 | Status | Fail |
 
 ---
@@ -79,7 +79,7 @@ Eight test cases: five positive or validation checks that pass, and three edge c
 | Test Data | "Test Student A"; "Test Student A " (one trailing space); " Test" (one leading space) |
 | Steps | 1. Type "Test Student A" in Search students. <br>2. Add one space at the end. <br>3. Replace the text with " Test". |
 | Expected Result | All three searches list Test Student A |
-| Actual Result | Step 1 lists the student; steps 2 and 3 show "No matching results found" (see BUG-03) |
+| Actual Result | Step 1 lists the student; steps 2 and 3 show "No matching results found". The Caseload side list, Service Time and Data searches ignore the same space (MINOR-01) |
 | Status | Fail |
 
 ---
@@ -92,9 +92,9 @@ Eight test cases: five positive or validation checks that pass, and three edge c
 | Title | Edit a student's last name with an apostrophe and an accented letter |
 | Preconditions | Student "Test Student A" exists |
 | Test Data | New Last Name: O'Brien José; search text: o'brien |
-| Steps | 1. Open the student's profile. <br>2. Open the menu (⋮) and choose Edit Student. <br>3. Change Last Name to O'Brien José and click Update. <br>4. Reload the page. <br>5. Search "o'brien" in the student list. |
-| Expected Result | The change is saved; the name shows as "Test O'Brien José" after reload; search finds the student |
-| Actual Result | "Student detail updated successfully"; the name shows correctly in Caseload after reload; search finds the student |
+| Steps | 1. Open the student's profile. <br>2. Open the three-dot menu and choose Edit Student. <br>3. Change Last Name to O'Brien José and click Update. <br>4. Reload the page. <br>5. Search "o'brien" in the student list. |
+| Expected Result | The change is saved; the Caseload list and profile show "Test O'Brien José" after reload; search finds the student |
+| Actual Result | "Student detail updated successfully"; the name shows correctly in Caseload after reload; search finds the student. Note: other screens change its letter case (MINOR-02) |
 | Status | Pass |
 
 ---
@@ -123,6 +123,6 @@ Eight test cases: five positive or validation checks that pass, and three edge c
 | Preconditions | Caseload page open |
 | Test Data | First Name: "LongNameTest" repeated 25 times (300 characters); Last Name: Student B |
 | Steps | 1. Click Add Student and choose Add Manually. <br>2. Enter the test data and click Create. <br>3. Check the Caseload list and the profile header, and hover over the name. <br>4. Open Delete Student for this record. |
-| Expected Result | Either the field limits the length with a message, or the full name can be read (for example in a tooltip) without breaking any layout |
-| Actual Result | The student was created with no length limit. The name is cut off with "..." in the list and the profile header, hovering shows no tooltip, and the last name is never visible in the header. In the Delete Student dialog the name runs outside the dialog box |
+| Expected Result | The full name can be read somewhere (for example in a tooltip or the profile header) and no dialog layout breaks |
+| Actual Result | The student was created with no length limit. The name is cut off with "..." in the list and the profile header, hovering shows no tooltip, and the last name is never visible in the header. In the Delete Student dialog the name runs outside the dialog box (MINOR-13, MINOR-03) |
 | Status | Fail |

@@ -1,29 +1,33 @@
 # 5. Cross-browser and responsive report
 
-Setups tested:
+Setups:
 
-- Desktop: Google Chrome 155.0.8059.80 on macOS 27.0.1, viewport 1496 x 762
-- Desktop: Firefox or Microsoft Edge: not tested (neither is installed on the test machine)
-- Mobile view: a narrow Chrome window, 500 x 667 viewport. Chrome does not let a desktop window go below
-  500 px wide, so this is close to, but not exactly, 390 x 844. The Play Store app was not tested.
-- iPad view: a Chrome window at iPad Mini width (768 px) and iPad Pro width (1024 px). The window height was
-  limited to 762 px by the laptop screen.
+- Desktop: Google Chrome 155.0.8059.80 on macOS 27.0.1, viewport 1496 x 762: **tested**.
+- Desktop: Firefox or Microsoft Edge: **not tested**.
+- Mobile (390 x 844) and the AbleSpace mobile app: **not tested**. As a partial check I used a narrow Chrome window
+  (500 x 667; Chrome does not allow a narrower desktop window). This is not device emulation.
+- iPad: Chrome window resized to iPad Mini width (768 px) and iPad Pro width (1024 px), not device emulation. The
+  window height was limited to 762 px by the laptop screen.
 
-Pass / Fail below is about layout and behavior on each setup. Functional bugs that appear on every setup are in
-Section 4.
+| Area / Feature | Chrome | Firefox / Edge | Mobile (390 x 844) | Notes |
+|----------------|--------|----------------|--------------------|-------|
+| Signup and login | Pass (happy path) | Not tested | Not tested | Account created and logged in once on Chrome. Wrong-password and empty-field login cases were not tested. |
+| Main workflow | Pass, with known bugs | Not tested | Not tested | Add, search and edit student work on Chrome; defects are listed in Section 4 (BUG-01 to BUG-03, MINOR-01). |
+| Forms | Pass | Not tested | Not tested | Required-field handling differs by screen (see the table at the end of Section 2). |
+| Navigation | Pass, with MINOR-12 | Not tested | Not tested | Browser Back from a student profile does not return to the table (MINOR-12). |
 
-| Area / Feature | Chrome | Firefox / Edge | Mobile (500 x 667 window) | Notes |
-|----------------|--------|----------------|---------------------------|-------|
-| Signup and login | Pass | Not tested | Not tested | The account was created and logged in manually on Chrome. Login was not repeated on other setups (one account; I did not log out). |
-| Main workflow (add, search, edit student) | Pass | Not tested | Pass | On the narrow window, Add Student opens as a bottom sheet with a full-width Create button; the Caseload table keeps Full Name, Last Name and Actions visible. |
-| Forms | Pass | Not tested | Pass | Required-field rules behave the same on both widths. On the narrow window the Data and Service Time tables show the first columns and cut the rest at the right edge; I did not check sideways scrolling inside those tables. |
-| Navigation | Pass | Not tested | Pass | Below desktop width the sidebar becomes a menu button; the drawer opens and closes correctly. |
+## Extra check: narrow Chrome window (500 x 667)
 
-iPad Mini / iPad Pro notes:
+| Area | Result | Notes |
+|------|--------|-------|
+| Navigation | Pass | The sidebar becomes a menu button; the drawer opens and closes ([RESP-narrow-500-menu-open.jpg](evidence/RESP-narrow-500-menu-open.jpg)). |
+| Add Student form | Pass | Opens as a bottom sheet with a full-width Create button ([RESP-narrow-500-add-student.jpg](evidence/RESP-narrow-500-add-student.jpg)). |
+| Caseload table | Pass | Full Name, Last Name and Actions stay visible ([RESP-narrow-500-caseload.jpg](evidence/RESP-narrow-500-caseload.jpg)). |
+| Data and Service Time tables | Fail (minor) | Only the first columns are visible: the student name is cut to "Demo stu..." or "Demo", and the minutes column is off screen. Sideways scrolling inside the tables was not checked ([RESP-narrow-500-data.jpg](evidence/RESP-narrow-500-data.jpg), [RESP-narrow-500-service-time.jpg](evidence/RESP-narrow-500-service-time.jpg)). |
 
-- iPad Mini width (768 px): Caseload and the student forms fit. Calendar: Fail. The toolbar does not fit:
-  "School" is cut to "Schc", Collaborators shows only an icon, the more-options (⋮) button is off-screen, and
-  the whole page scrolls sideways ([MINOR-3-ipad-mini-calendar-toolbar-cut.png](evidence/MINOR-3-ipad-mini-calendar-toolbar-cut.png),
-  [MINOR-3-ipad-mini-calendar-horizontal-scroll.jpg](evidence/MINOR-3-ipad-mini-calendar-horizontal-scroll.jpg)).
-- iPad Pro width (1024 px): Calendar and Caseload fit with no overflow. Pass ([RESP-ipad-pro-1024-calendar.jpg](evidence/RESP-ipad-pro-1024-calendar.jpg), [RESP-ipad-pro-1024-caseload.jpg](evidence/RESP-ipad-pro-1024-caseload.jpg)).
-- Screens from the narrow-window and iPad checks: [RESP-ipad-mini-768-calendar.jpg](evidence/RESP-ipad-mini-768-calendar.jpg), [RESP-ipad-mini-768-caseload.jpg](evidence/RESP-ipad-mini-768-caseload.jpg), [RESP-ipad-pro-1024-calendar.jpg](evidence/RESP-ipad-pro-1024-calendar.jpg), [RESP-ipad-pro-1024-caseload.jpg](evidence/RESP-ipad-pro-1024-caseload.jpg), [RESP-narrow-500-add-student.jpg](evidence/RESP-narrow-500-add-student.jpg), [RESP-narrow-500-caseload.jpg](evidence/RESP-narrow-500-caseload.jpg), [RESP-narrow-500-data.jpg](evidence/RESP-narrow-500-data.jpg), [RESP-narrow-500-menu-open.jpg](evidence/RESP-narrow-500-menu-open.jpg), [RESP-narrow-500-service-time.jpg](evidence/RESP-narrow-500-service-time.jpg).
+## iPad widths (resized Chrome window)
+
+| Area | iPad Mini width (768 px) | iPad Pro width (1024 px) | Notes |
+|------|--------------------------|--------------------------|-------|
+| Caseload table | Pass | Pass | The 768 px screenshot was taken while the list was still loading ([RESP-ipad-mini-768-caseload.jpg](evidence/RESP-ipad-mini-768-caseload.jpg), [RESP-ipad-pro-1024-caseload.jpg](evidence/RESP-ipad-pro-1024-caseload.jpg)). |
+| Calendar (List view only) | Fail (minor) | Pass | At 768 px the toolbar does not fit and the page scrolls sideways (MINOR-05; [RESP-ipad-mini-768-calendar.jpg](evidence/RESP-ipad-mini-768-calendar.jpg), [RESP-ipad-pro-1024-calendar.jpg](evidence/RESP-ipad-pro-1024-calendar.jpg)). Week and Day views were not checked at these widths. |

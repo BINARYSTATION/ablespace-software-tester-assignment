@@ -2,8 +2,19 @@
 
 - Candidate: Manish Mewada
 - Application: Software Tester (QA), AbleSpace (via Internshala)
-- Application tested: staging.ablespace.io
-- Date tested: October 14, 2026
+- Application tested: staging.ablespace.io (Basic plan)
+- Dates tested: October 14 and 15, 2026
+
+## Summary
+
+Top three bugs (full reports in Section 4):
+
+1. **BUG-01 (High):** an absent student is credited with service minutes and goal data, with no warning.
+2. **BUG-02 (Medium):** Service Time accepts any number of minutes, such as 99,999 on a 30-minute session.
+3. **BUG-03 (Low):** an event created after 4 PM disappears from Day and Week view right after "Event created successfully".
+
+Also: 14 smaller issues (end of Section 4), 10 scenarios (Section 2) and 8 test cases (Section 3).
+Not tested: Firefox / Edge and the AbleSpace mobile app (Section 5).
 
 ## Contents
 
@@ -16,25 +27,25 @@
 | 6 | Test summary | [06-test-summary.md](06-test-summary.md) |
 | 7 | Optional: Playwright automation | Not attempted |
 
-Screenshots referenced by the reports are in the [evidence](evidence/) folder. Each file name starts with the
-item it belongs to: `BUG-01-...`, `MINOR-1-...`, `RESP-...` (responsive checks) or `PASS-...`.
+Screenshots are in the [evidence](evidence/) folder. Each file name starts with the item it belongs to:
+`BUG-01-...`, `MINOR-01-...`, `RESP-...` (layout checks) or `PASS-...`.
 
 ## How I tested
 
 - One account, created manually through the normal signup flow, with fictional data only (for example
   "Test Student A", plus the two demo students that come with a new account).
-- No security, penetration or load testing. No injection-style input. No scripts that create accounts.
-- No contact with AbleSpace users or support. No invitations or emails were sent from the app.
-- Plan: Basic (free). Features marked with a crown (Pro) were not tested.
-- AI assistance: an AI assistant (Claude, driving the Chrome browser) helped run the exploratory session,
-  capture the screenshots and draft this write-up. I reviewed every finding and re-ran the three main bugs
-  myself before submitting.
+- Special characters (apostrophe, accented letters, an emoji) were used as ordinary name and note text, not as
+  injection attempts. No security or load testing. No scripts that create accounts.
+- No contact with AbleSpace users or support. No invitations were sent.
+- Features marked with a crown (Pro) were not tested.
+- Who did what: an AI assistant (Claude) drove the Chrome browser during exploration, took the screenshots and
+  drafted this write-up. I reviewed every finding and re-ran the three main bugs myself on October 15, 2026.
 
 ## Environment
 
 | Setup | Details |
 |-------|---------|
-| Desktop browser 1 | Google Chrome 155.0.8059.80 on macOS 27.0.1, viewport 1496 x 762 |
-| Desktop browser 2 | Firefox or Edge: not tested (see Section 5) |
-| Mobile | Narrow Chrome window, 500 x 667 viewport (Chrome's minimum window width). Play Store app: not tested |
-| Tablet | Chrome window at iPad Mini width (768 px) and iPad Pro width (1024 px); height limited to 762 px by the laptop screen |
+| Desktop browser 1 | Google Chrome 155.0.8059.80 on macOS 27.0.1, viewport 1496 x 762, time zone IST (UTC+5:30) |
+| Desktop browser 2 | Firefox or Edge: not tested |
+| Mobile | Not tested on a phone or in device emulation. A narrow Chrome window (500 x 667, the smallest Chrome allows) was checked instead |
+| Tablet | Chrome window resized to iPad Mini width (768 px) and iPad Pro width (1024 px), not device emulation; height limited to 762 px by the screen |
