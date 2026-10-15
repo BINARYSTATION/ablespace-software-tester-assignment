@@ -3,7 +3,7 @@
 Setups tested:
 
 - Desktop: Google Chrome 155.0.8059.80 on macOS 27.0.1, viewport 1496 x 762
-- Desktop: Firefox or Microsoft Edge: not tested yet (neither was installed on the test machine)
+- Desktop: Firefox or Microsoft Edge: not tested (neither is installed on the test machine)
 - Mobile view: a narrow Chrome window, 500 x 667 viewport. Chrome does not let a desktop window go below
   500 px wide, so this is close to, but not exactly, 390 x 844. The Play Store app was not tested.
 - iPad view: a Chrome window at iPad Mini width (768 px) and iPad Pro width (1024 px). The window height was
@@ -23,7 +23,7 @@ iPad Mini / iPad Pro notes:
 
 - iPad Mini width (768 px): Caseload and the student forms fit. Calendar: Fail. The toolbar does not fit:
   "School" is cut to "Schc", Collaborators shows only an icon, the more-options (⋮) button is off-screen, and
-  the whole page scrolls sideways (evidence/MINOR-3-ipad-mini-calendar-toolbar-cut.png,
-  evidence/MINOR-3-ipad-mini-calendar-horizontal-scroll.jpg).
-- iPad Pro width (1024 px): Calendar and Caseload fit with no overflow. Pass (evidence/RESP-ipad-pro-1024-*).
-- Screens from the narrow-window and iPad checks: evidence/RESP-*.
+  the whole page scrolls sideways ([MINOR-3-ipad-mini-calendar-toolbar-cut.png](evidence/MINOR-3-ipad-mini-calendar-toolbar-cut.png),
+  [MINOR-3-ipad-mini-calendar-horizontal-scroll.jpg](evidence/MINOR-3-ipad-mini-calendar-horizontal-scroll.jpg)).
+- iPad Pro width (1024 px): Calendar and Caseload fit with no overflow. Pass ([RESP-ipad-pro-1024-calendar.jpg](evidence/RESP-ipad-pro-1024-calendar.jpg), [RESP-ipad-pro-1024-caseload.jpg](evidence/RESP-ipad-pro-1024-caseload.jpg)).
+- Screens from the narrow-window and iPad checks: [RESP-ipad-mini-768-calendar.jpg](evidence/RESP-ipad-mini-768-calendar.jpg), [RESP-ipad-mini-768-caseload.jpg](evidence/RESP-ipad-mini-768-caseload.jpg), [RESP-ipad-pro-1024-calendar.jpg](evidence/RESP-ipad-pro-1024-calendar.jpg), [RESP-ipad-pro-1024-caseload.jpg](evidence/RESP-ipad-pro-1024-caseload.jpg), [RESP-narrow-500-add-student.jpg](evidence/RESP-narrow-500-add-student.jpg), [RESP-narrow-500-caseload.jpg](evidence/RESP-narrow-500-caseload.jpg), [RESP-narrow-500-data.jpg](evidence/RESP-narrow-500-data.jpg), [RESP-narrow-500-menu-open.jpg](evidence/RESP-narrow-500-menu-open.jpg), [RESP-narrow-500-service-time.jpg](evidence/RESP-narrow-500-service-time.jpg).

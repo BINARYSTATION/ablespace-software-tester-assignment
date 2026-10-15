@@ -35,6 +35,6 @@ item it belongs to: `BUG-01-...`, `MINOR-1-...`, `RESP-...` (responsive checks) 
 | Setup | Details |
 |-------|---------|
 | Desktop browser 1 | Google Chrome 155.0.8059.80 on macOS 27.0.1, viewport 1496 x 762 |
-| Desktop browser 2 | Firefox or Edge: not tested yet (see Section 5) |
+| Desktop browser 2 | Firefox or Edge: not tested (see Section 5) |
 | Mobile | Narrow Chrome window, 500 x 667 viewport (Chrome's minimum window width). Play Store app: not tested |
 | Tablet | Chrome window at iPad Mini width (768 px) and iPad Pro width (1024 px); height limited to 762 px by the laptop screen |

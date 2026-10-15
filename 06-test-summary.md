@@ -19,7 +19,7 @@ inputs, such as the Calendar end time.
 
 ## Areas not tested
 
-- Firefox or Edge, and the AbleSpace mobile app: not installed on the test machine yet.
+- Firefox or Edge, and the AbleSpace mobile app: not installed on the test machine, so not tested.
 - Pro features (Groups, Archive, Transfer, Providers, Billing pages): the account is on the Basic plan.
 - Upload IEP and the other AI features: not tested in depth.
 - Collaborators, Family Center and anything that sends invitations or emails: skipped to follow the rule of no
